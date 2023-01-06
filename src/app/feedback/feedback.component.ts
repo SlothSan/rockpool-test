@@ -11,14 +11,19 @@ export class FeedbackComponent {
    
     feedbackFormGroup: FormGroup;
 
-    constructor() {
-      this.feedbackFormGroup = new FormGroup({
-        name: new FormControl(""),
-        companyControl: new FormControl(""),
-        jobTitleControl: new FormControl(""),
-        yearsControl: new FormControl(0),
-        additionalInfoControl: new FormControl("")
+    constructor(private formBuilder: FormBuilder) {
+      this.feedbackFormGroup = this.formBuilder.group({
+        name: ["", Validators.required, Validators.minLength(6)],
+        companyControl: ["", Validators.required],
+        jobTitleControl: ["", Validators.required],
+        yearsControl: [0, Validators.compose([
+          Validators.required,
+          Validators.min(0),
+          Validators.max(50)
+        ])],
+        additionalInfoControl: ["", Validators.required]
       })
+
     }
 
     onFormSubmit(formData: any) { 
