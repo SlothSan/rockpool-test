@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { Form, FormControl, FormGroup, FormBuilder, Validators} from '@angular/forms';
 
 
@@ -11,11 +12,12 @@ export class FeedbackComponent {
    
     feedbackFormGroup: FormGroup;
 
-    constructor(private formBuilder: FormBuilder) {
+    constructor(private formBuilder: FormBuilder, private router: Router) {
       this.feedbackFormGroup = this.formBuilder.group({
         name: ["", Validators.compose([
           Validators.required, 
-          Validators.minLength(6)
+          Validators.minLength(6),
+          Validators.pattern('^[a-zA-Z ]*$')
         ])],
         companyControl: ["", Validators.required],
         jobTitleControl: ["", Validators.required],
@@ -30,7 +32,7 @@ export class FeedbackComponent {
     }
 
     onFormSubmit(formData: any) { 
-      console.log(formData);  
+      this.router.navigate(["/thankyou"])  
     } 
    
 }

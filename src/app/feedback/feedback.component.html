@@ -3,6 +3,12 @@
     <form [formGroup]="feedbackFormGroup" #f="ngForm" (ngSubmit)="onFormSubmit(f.value)">
         <div class="form-group">
             <label for="name">Name</label>
+            <!--attempting to add validatition errors - couldn't figure out how to access the error and ran out of time-->
+            <!-- <div *ngIf="feedbackFormGroup.controls['name'].invalid && feedbackFormGroup.controls['name'].dirty || feedbackFormGroup.controls['name'].touched">
+                <div *ngIf="feedbackFormGroup.controls['name'].errors.minlength">
+                    Name Too Short!
+                </div>
+            </div> -->
             <input name="name" type="text" required minlength="6" formControlName="name" placeholder="Enter Your Name"/>
         </div>
         <div class="form-group">
