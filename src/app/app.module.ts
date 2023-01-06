@@ -9,12 +9,14 @@ import { ThankyouComponent } from './thankyou/thankyou.component';
 import { FormsModule } from '@angular/forms';
 //import router module for later use/
 import { RouterModule } from '@angular/router';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FeedbackComponent,
-    ThankyouComponent
+    ThankyouComponent,
+    PagenotfoundComponent
   ],
   imports: [
     BrowserModule,
@@ -23,7 +25,8 @@ import { RouterModule } from '@angular/router';
     RouterModule.forRoot([
       {path: 'feedback', component: FeedbackComponent},
       {path: 'thankyou', component: ThankyouComponent},
-      {path: '', redirectTo: '/feedback', pathMatch: 'full'}
+      {path: '', redirectTo: '/feedback', pathMatch: 'full'},
+      {path: '**', component: PagenotfoundComponent},
     ])
   ],
   providers: [],
