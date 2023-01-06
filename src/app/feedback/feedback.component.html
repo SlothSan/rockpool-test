@@ -1,25 +1,24 @@
 <h1>Feedback collection!</h1>
 <div class="form-container">
-    <form>
+    <form [formGroup]="feedbackFormGroup" (ngSubmit)="onFormSubmit()">
         <div class="form-group">
             <label for="name">Name</label>
-            <input name="name" type="text" required minlength="6" [formControl]="nameControl"/>
+            <input name="name" type="text" required minlength="6" formControlName="name" placeholder="Enter Your Name"/>
         </div>
         <div class="form-group">
             <label for="companyName">Company Name</label>
-            <input name="companyName" type="text" required [formControl]="companyControl"/>
+            <input name="companyName" type="text" required formControlName="companyControl" placeholder="Enter Company Name"/>
         </div>
         <div class="form-group">
             <label for="jobTitle">Job Title</label>
-            <input name="jobTitle" type="text" required [formControl]="jobTitleControl"/>
+            <input name="jobTitle" type="text" required formControlName="jobTitleControl" placeholder="Enter Your Job Title"/>
         </div>
         <div class="form-group">
             <label for="years">Years in current role</label>
-            <input name="years" type="number" required min="0" max="50" [formControl]="yearsControl"/>
+            <input name="years" type="number" required min="0" max="50" formControlName="yearsControl"/>
         </div>
         <div class="form-group">
-            <label for="additional">What do you like about marketing corp</label>
-            <textarea name="additional" required [formControl]="additionalInfoControl"></textarea>
+            <textarea name="additional" required formControlName="additionalInfoControl" placeholder="Enter what you like about marketing corp?"></textarea>
         </div>
         <button type="submit">Submit!</button>
     </form>

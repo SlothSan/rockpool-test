@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Form, FormControl } from '@angular/forms';
+import { Form, FormControl, FormGroup } from '@angular/forms';
 
 
 @Component({
@@ -9,18 +9,20 @@ import { Form, FormControl } from '@angular/forms';
 })
 export class FeedbackComponent {
    
-    nameControl: FormControl;
-    companyControl: FormControl;
-    jobTitleControl: FormControl;
-    yearsControl: FormControl;
-    additionalInfoControl: FormControl;
+    feedbackFormGroup: FormGroup;
 
     constructor() {
-      this.nameControl = new FormControl("");
-      this.companyControl = new FormControl("");
-      this.jobTitleControl = new FormControl("");
-      this.yearsControl = new FormControl();
-      this.additionalInfoControl = new FormControl("");
+      this.feedbackFormGroup = new FormGroup({
+        name: new FormControl(""),
+        companyControl: new FormControl(""),
+        jobTitleControl: new FormControl(""),
+        yearsControl: new FormControl(0),
+        additionalInfoControl: new FormControl("")
+      })
     }
+
+    onFormSubmit() { 
+      console.log(this.feedbackFormGroup.value);  
+    } 
    
 }
