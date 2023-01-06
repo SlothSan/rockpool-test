@@ -7,6 +7,8 @@ import { FeedbackComponent } from './feedback/feedback.component';
 import { ThankyouComponent } from './thankyou/thankyou.component';
 //Import the form module for later use. 
 import { FormsModule } from '@angular/forms';
+//import router module for later use/
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,12 @@ import { FormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot([
+      {path: 'feedback', component: FeedbackComponent},
+      {path: 'thankyou', component: ThankyouComponent},
+      {path: '', redirectTo: '/feedback', pathMatch: 'full'}
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]
