@@ -3,25 +3,25 @@
     <form>
         <div class="form-group">
             <label for="name">Name</label>
-            <input name="name" type="text"/>
+            <input name="name" type="text" required minlength="6" [formControl]="nameControl"/>
         </div>
         <div class="form-group">
             <label for="companyName">Company Name</label>
-            <input name="companyName" type="text"/>
+            <input name="companyName" type="text" required [formControl]="companyControl"/>
         </div>
         <div class="form-group">
             <label for="jobTitle">Job Title</label>
-            <input name="jobTitle" type="text"/>
+            <input name="jobTitle" type="text" required [formControl]="jobTitleControl"/>
         </div>
         <div class="form-group">
             <label for="years">Years in current role</label>
-            <input name="years" type="number"/>
+            <input name="years" type="number" required min="0" max="50" [formControl]="yearsControl"/>
         </div>
         <div class="form-group">
             <label for="additional">What do you like about marketing corp</label>
-            <textarea name="additional"></textarea>
+            <textarea name="additional" required [formControl]="additionalInfoControl"></textarea>
         </div>
-        <button>Submit!</button>
+        <button type="submit">Submit!</button>
     </form>
 
 </div>
