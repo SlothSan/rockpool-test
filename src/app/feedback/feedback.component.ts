@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Form, FormControl, FormGroup } from '@angular/forms';
+import { Form, FormControl, FormGroup, FormBuilder, Validators} from '@angular/forms';
 
 
 @Component({
@@ -21,8 +21,8 @@ export class FeedbackComponent {
       })
     }
 
-    onFormSubmit() { 
-      console.log(this.feedbackFormGroup.value);  
+    onFormSubmit(formData: any) { 
+      console.log(formData);  
     } 
    
 }
