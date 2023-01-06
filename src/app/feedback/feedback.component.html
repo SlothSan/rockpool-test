@@ -20,7 +20,7 @@
         <div class="form-group">
             <textarea name="additional" required formControlName="additionalInfoControl" placeholder="Enter what you like about marketing corp?"></textarea>
         </div>
-        <button type="submit">Submit!</button>
+        <button type="submit" [disabled]="f.invalid">Submit!</button>
     </form>
 
 </div>

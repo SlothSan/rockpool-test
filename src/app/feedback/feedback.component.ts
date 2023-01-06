@@ -13,7 +13,10 @@ export class FeedbackComponent {
 
     constructor(private formBuilder: FormBuilder) {
       this.feedbackFormGroup = this.formBuilder.group({
-        name: ["", Validators.required, Validators.minLength(6)],
+        name: ["", Validators.compose([
+          Validators.required, 
+          Validators.minLength(6)
+        ])],
         companyControl: ["", Validators.required],
         jobTitleControl: ["", Validators.required],
         yearsControl: [0, Validators.compose([
