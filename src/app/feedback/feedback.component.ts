@@ -6,5 +6,7 @@ import { User } from '../user'
   styleUrls: ['./feedback.component.scss']
 })
 export class FeedbackComponent {
+   submitted = false;
 
+   onSubmit() {this.submitted = true};
 }
